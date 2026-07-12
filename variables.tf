@@ -13,11 +13,11 @@ EOT
   type = map(object({
     name           = string
     virtual_hub_id = string
-    routing_policy = object({
+    routing_policy = list(object({
       destinations = list(string)
       name         = string
       next_hop     = string
-    })
+    }))
   }))
 }
 
