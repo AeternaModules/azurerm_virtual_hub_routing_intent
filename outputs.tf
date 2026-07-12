@@ -1,3 +1,7 @@
+output "virtual_hub_routing_intents_id" {
+  description = "Map of id values across all virtual_hub_routing_intents, keyed the same as var.virtual_hub_routing_intents"
+  value       = { for k, v in azurerm_virtual_hub_routing_intent.virtual_hub_routing_intents : k => v.id }
+}
 output "virtual_hub_routing_intents_name" {
   description = "Map of name values across all virtual_hub_routing_intents, keyed the same as var.virtual_hub_routing_intents"
   value       = { for k, v in azurerm_virtual_hub_routing_intent.virtual_hub_routing_intents : k => v.name }
