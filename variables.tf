@@ -19,5 +19,13 @@ EOT
       next_hop     = string
     }))
   }))
+  validation {
+    condition = alltrue([
+      for k, v in var.virtual_hub_routing_intents : (
+        length(v.routing_policy) >= 1
+      )
+    ])
+    error_message = "Each routing_policy list must contain at least 1 items"
+  }
 }
 
